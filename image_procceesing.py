@@ -145,6 +145,7 @@ class ImageProcessor:
             sum += diff_punish_outliers(self.images[i], self.quantize_image_reverse(self.get_image_projection_complex(
                 three_d_matrix, angle_x, angle_y, angle_z, axis)))
         # sum += 0.5*np.sum(three_d_matrix)
+        print(sum)
         return sum
 
     def loss_2(self, three_d_matrix):
