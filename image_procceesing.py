@@ -43,8 +43,10 @@ class ImageProcessor:
         @param folder_path: Folder that contains images.
         @return: None.
         """
-        self.files = sorted(
-            [os.path.join(folder_path, f) for f in os.listdir(folder_path) if os.path.isfile(os.path.join(folder_path, f))])
+        # self.files = sorted(
+        #     [os.path.join(folder_path, f) for f in os.listdir(folder_path) if os.path.isfile(os.path.join(folder_path, f))])
+        self.files = sorted(os.listdir(folder_path))
+
         self.files = list(filter(os.path.exists, self.files))[:]
         for i, file in enumerate(self.files):
             image = self.read_image(file, self._representation)
