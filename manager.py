@@ -25,6 +25,7 @@ def main():
     greedy_solver = GreedySolver(image_processing.get_images(),
                                  image_processing.loss_pyramid, naive_successors,
                                  init_func, num_iters)
+    print("solving greedy")
     #hill_climber = HillClimbingSolver(image_processing.get_images(),
     #                                  image_processing.loss_pyramid, naive_successors,
     #                                  init_func, num_iters)
