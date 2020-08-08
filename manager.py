@@ -6,10 +6,15 @@ from hill_climbing_solver import HillClimbingSolver
 from successor_functions import *
 from inital_state_factory import *
 from GUI import *
+import argparse
+
 
 path = "images/pyramid 2/"
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--imgs-dir', type=str, required=True)
+    path = parser.parse_args()
     image_processing = ImageProcessor(path, GRAY, [40,40])
     init_state_producer = InitStateFactory((40, 40, 40))
     init_func = init_state_producer.blank_slate
