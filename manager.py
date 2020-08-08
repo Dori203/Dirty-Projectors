@@ -14,7 +14,7 @@ path = "images/pyramid 2/"
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--imgs-dir', type=str, required=True)
-    path = parser.parse_args()._imgs_dir
+    path = parser.parse_args().imgs_dir
     image_processing = ImageProcessor(path, GRAY, [40,40])
     init_state_producer = InitStateFactory((40, 40, 40))
     init_func = init_state_producer.blank_slate
