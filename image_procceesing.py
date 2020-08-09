@@ -59,6 +59,8 @@ class ImageProcessor:
             # #    rotated_image = rotate(image_resized, 90)
             image = self.quantize_image(image_resized)
             self.images.append(image)
+            plt.imshow(image)
+            plt.show()
 
     def get_image_shape(self):
         """
