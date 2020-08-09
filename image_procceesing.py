@@ -48,6 +48,7 @@ class ImageProcessor:
         self.files = sorted(os.listdir(folder_path))
 
         self.files = list(filter(os.path.exists, self.files))[:]
+        print("found ", len(self.files), " files")
         for i, file in enumerate(self.files):
             image = self.read_image(file, self._representation)
             image_resized = resize(image, (self.dim[0], self.dim[1]), anti_aliasing=True)
