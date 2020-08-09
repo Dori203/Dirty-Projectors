@@ -17,9 +17,9 @@ def main():
     path = parser.parse_args().imgs_dir
     image_processing = ImageProcessor(path, GRAY, [40,40])
     init_state_producer = InitStateFactory((40, 40, 40))
-    init_func = init_state_producer.blank_slate
+    init_func = init_state_producer.random_init_state
     # init_func = init_state_producer.random_init_state
-    num_iters = 1000
+    num_iters = 100
     # csp_solver = CSPSolver(image_processing.get_images())
 
     greedy_solver = GreedySolver(image_processing.get_images(),
