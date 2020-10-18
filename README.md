@@ -3,12 +3,12 @@ Create 3d artifacts using 3 or more 2d side projections, for artistic or modelin
 Using search algorithms and CSP, the program creates 3d shapes that correspond to given 2d images from different perspectives.
 The resulting 3d object's projecting will match the given images.
 
+![alt text](https://dori203.github.io/images/AI_3d/ai_ying.gif)
+
 This project includes:
 * Image processing module.
 * Search algorithms configurations.
 * Genetic algorithms configurations.
-
-
 
 ## Overview
 **Dirty_Projectors.py**:
