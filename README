@@ -45,6 +45,3 @@ flags = {
   -sf successor function = ['naive', 'neighbouring', 'column']
 }
 ```
-
-
-
