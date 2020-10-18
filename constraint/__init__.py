@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/tutorial
 #
 # Copyright (c) 2005-2014 - Gustavo Niemeyer <gustavo@niemeyer.net>
 #
@@ -45,7 +45,6 @@
 """
 
 from __future__ import absolute_import, division, print_function
-
 
 from .version import __author__  # noqa
 from .version import __copyright__  # noqa
@@ -366,7 +365,7 @@ def doArc8(arcs, domains, assignments):
                             assignments[othervariable] = othervalue
                             for constraint, variables in arcconstraints:
                                 if not constraint(
-                                    variables, domains, assignments, True
+                                        variables, domains, assignments, True
                                 ):
                                     break
                             else:
@@ -487,10 +486,7 @@ class BacktrackingSolver(Solver):
         while True:
 
             # Mix the Degree and Minimum Remaing Values (MRV) heuristics
-            lst = [
-                (-len(vconstraints[variable]), len(domains[variable]), variable)
-                for variable in domains
-            ]
+            lst = [(-len(vconstraints[variable]), len(domains[variable]), variable) for variable in domains]
             lst.sort()
             for item in lst:
                 if item[-1] not in assignments:
@@ -607,7 +603,7 @@ class RecursiveBacktrackingSolver(Solver):
         self._forwardcheck = forwardcheck
 
     def recursiveBacktracking(
-        self, solutions, domains, vconstraints, assignments, single
+            self, solutions, domains, vconstraints, assignments, single
     ):
 
         # Mix the Degree and Minimum Remaing Values (MRV) heuristics
@@ -645,9 +641,7 @@ class RecursiveBacktrackingSolver(Solver):
                     break
             else:
                 # Value is good. Recurse and get next variable.
-                self.recursiveBacktracking(
-                    solutions, domains, vconstraints, assignments, single
-                )
+                self.recursiveBacktracking(solutions, domains, vconstraints, assignments, single)
                 if solutions and single:
                     return solutions
             if pushdomains:
@@ -737,7 +731,7 @@ class MinConflictsSolver(Solver):
                 conflicted = True
             if not conflicted:
                 return assignments
-        return None
+        return assignments
 
 
 # ----------------------------------------------------------------------
@@ -765,6 +759,7 @@ class Variable(object):
 
 
 Unassigned = Variable("Unassigned")
+
 
 # ----------------------------------------------------------------------
 # Domains
@@ -975,20 +970,20 @@ class FunctionConstraint(Constraint):
         self._assigned = assigned
 
     def __call__(
-        self,
-        variables,
-        domains,
-        assignments,
-        forwardcheck=False,
-        _unassigned=Unassigned,
+            self,
+            variables,
+            domains,
+            assignments,
+            forwardcheck=False,
+            _unassigned=Unassigned,
     ):
         parms = [assignments.get(x, _unassigned) for x in variables]
         missing = parms.count(_unassigned)
         if missing:
             return (self._assigned or self._func(*parms)) and (
-                not forwardcheck or
-                missing != 1 or
-                self.forwardCheck(variables, domains, assignments)
+                    not forwardcheck or
+                    missing != 1 or
+                    self.forwardCheck(variables, domains, assignments)
             )
         return self._func(*parms)
 
@@ -1007,12 +1002,12 @@ class AllDifferentConstraint(Constraint):
     """
 
     def __call__(
-        self,
-        variables,
-        domains,
-        assignments,
-        forwardcheck=False,
-        _unassigned=Unassigned,
+            self,
+            variables,
+            domains,
+            assignments,
+            forwardcheck=False,
+            _unassigned=Unassigned,
     ):
         seen = {}
         for variable in variables:
@@ -1047,12 +1042,12 @@ class AllEqualConstraint(Constraint):
     """
 
     def __call__(
-        self,
-        variables,
-        domains,
-        assignments,
-        forwardcheck=False,
-        _unassigned=Unassigned,
+            self,
+            variables,
+            domains,
+            assignments,
+            forwardcheck=False,
+            _unassigned=Unassigned,
     ):
         singlevalue = _unassigned
         for variable in variables:

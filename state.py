@@ -1,10 +1,12 @@
+import numpy as np
+
 
 class State:
     def __init__(self, matrix, layer_idx=0):
         self._matrix = matrix
         self._dim = matrix.shape[0]
         self.layer = layer_idx
-        self.score = 0.0
+        self.score = np.inf
 
     def get_matrix(self):
         return self._matrix
