@@ -30,9 +30,11 @@ Run "source ./setup.sh"
 
 ## Configuration
 to run the program run:
+
 ```
 python3 Dirty_projectors.py --flags
 ```
+
 where the flags are:
 ```
 flags = {
